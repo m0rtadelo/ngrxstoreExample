@@ -1,6 +1,7 @@
 # Ngrxstore
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
+Based on: https://appdividend.com/2018/01/31/angular-ngrx-store-tutorial-example-scratch/
 
 ## Development server
 

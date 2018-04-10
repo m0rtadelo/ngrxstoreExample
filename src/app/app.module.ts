@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BlockchainComponent } from './blockchain/blockchain.component';
 
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { addCoinReducer } from './reducers/blockchain.reducer';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DisplayComponent } from './display/display.component';
@@ -17,7 +18,11 @@ import { DisplayComponent } from './display/display.component';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({blockchain: addCoinReducer}),
+    StoreModule.forRoot({ blockchain: addCoinReducer }),
+    // Instrumentation must be imported after importing StoreModule (config is optional)
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    }),
     ReactiveFormsModule
   ],
   providers: [],

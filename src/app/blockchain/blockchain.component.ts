@@ -1,5 +1,6 @@
-import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Blockchain } from './blockchain.model';
+import { Counter } from './counter.model';
 import { AppState } from './../app.state';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -16,21 +17,38 @@ export class BlockchainComponent implements OnInit {
   }
   createForm() {
     this.angForm = this.fb.group({
-      name: ['', Validators.required ],
-      price: ['', Validators.required ]
-   });
+      name: ['', Validators.required],
+      price: ['', Validators.required]
+    });
   }
 
   addCoin(name, price) {
     this.store.dispatch({
       type: 'ADD_COIN',
-      payload: <Blockchain> {
+      payload: <Blockchain>{
         name: name,
         price: price
       }
     });
   }
 
+  increase() {
+    this.store.dispatch({
+      type: 'COUNTER',
+      payload: <Counter>{
+        value: +1
+      }
+    });
+  }
+
+  decrease() {
+    this.store.dispatch({
+      type: 'COUNTER',
+      payload: <Counter>{
+        value: -1
+      }
+    });
+  }
   ngOnInit() {
   }
 

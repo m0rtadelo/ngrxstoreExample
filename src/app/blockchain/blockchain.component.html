@@ -22,5 +22,10 @@
     <div class="form-group">
       <button (click)="addCoin(name.value, price.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
     </div>
+    <div class="form-group">
+      <button (click)="increase()" class="btn btn-primary">Increase</button>
+      <button (click)="decrease()" class="btn btn-primary">Decrease</button>
+    </div>
+    
   </form>
 </div>
